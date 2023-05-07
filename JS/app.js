@@ -8,5 +8,22 @@ var d = new Date(new_year, new_month, 1);
 
 //월별 일수 구하기
 var d_length = 32 - new Date(new_year, new_month, 32).getDate();
+var year = d.getFullYear();
+var month = d.getMonth();
 var date = d.getDate();
 var day = d.getDay();
+
+//caption 정보와 날짜 표시 객체지정
+var caption_year = document.querySelector(".year");
+var caption_month = document.querySelector(".month");
+var start_day = document.querySelectorAll("tr td");
+
+//한 달치 날짜를 테이블에서 시작 요일부터 순서대로 표시
+for (var i = day; i < day + d_length; i++) {
+  start_day[i].innerHTML = date;
+  date++;
+}
+
+//caption 정보와 날짜 표기 객체
+caption_year.innerHTML = year;
+caption_month.innerHTML = month + 1;
